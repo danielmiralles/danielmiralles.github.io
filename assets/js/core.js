@@ -53,7 +53,6 @@
                     var query = " select * from rss where url = 'https://medium.com/feed/@danielmarinomirallestaset' "
 
                     var q = Y.YQL(query, function(result) {
-                        console.log(result);
                         var $content = $('#jsonContent');
                         var output = '';
                         $.each(result.query.results.item, function (k, item) {
