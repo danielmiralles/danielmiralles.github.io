@@ -50,7 +50,8 @@
                 var items = [];
                 YUI().use('yql', function(Y){
 
-                    var query = " select * from rss where url = 'https://medium.com/feed/@danielmarinomirallestaset' "
+                    var query = " select * from rss where url = 'https://medium.com/feed/@danielmarinomirallestaset' ";
+                    var opts = ('https:' == document.location.protocol ? { proto: 'https' } : {}); // default is http
 
                     var q = Y.YQL(query, function(result) {
                         var $content = $('#jsonContent');
@@ -86,7 +87,7 @@
                         });
                         $content.html(output);
 
-                    })
+                    }, {}, opts);
                 })
 
                 return items;
